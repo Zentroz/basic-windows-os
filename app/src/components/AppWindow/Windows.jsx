@@ -8,7 +8,7 @@ const Windows = () => {
   return (
     <div>
       {windowSessions.map((window) =>
-        <AppWindow key={window["_id"]} windowSessionId={window["_id"]} />
+        <AppWindow key={window["_id"]} applicationName={window["name"]} windowSessionId={window["_id"]} displayMode={window["displayMode"]} />
       )}
     </div>
   )
