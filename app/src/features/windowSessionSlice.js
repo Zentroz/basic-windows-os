@@ -23,9 +23,13 @@ const windowSessionSlice = createSlice({
     minimizeWindow: (state, action) => {
       const index = state.sessions.findIndex((session) => session["_id"] == action.payload);
       state.sessions[index].displayMode = 0;
+    },
+    unMinimizeWindow: (state, action) => {
+      const index = state.sessions.findIndex((session) => session["_id"] == action.payload);
+      state.sessions[index].displayMode = 1;
     }
   }
 });
 
-export const { addSession, removeSession, minimizeWindow } = windowSessionSlice.actions;
+export const { addSession, removeSession, minimizeWindow, unMinimizeWindow } = windowSessionSlice.actions;
 export default windowSessionSlice.reducer;

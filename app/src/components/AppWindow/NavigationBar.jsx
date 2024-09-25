@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import NavigationButtons from './NavigationButtons';
-import { isInsideElement } from '../../utils/utilMethods';
 
 const NavigationBar = ({ applicationName, parentSessionId }) => {
   const navbarRef = useRef();
@@ -32,13 +31,17 @@ const NavigationBar = ({ applicationName, parentSessionId }) => {
       className='app-navigation-bar w-full h-[8%] bg-gray-800 pl-2'
       onMouseOver={() => setMouseHover(true)}
       onMouseOut={() => { setMouseHover(false); setMouseHold(false); }}
-      onMouseDown={(e) => { isInsideElement("navigation-buttons", e.clientX, e.clientY) ? "" : setMouseHold(true) }}
+      onMouseDown={(e) => {
+        if (e.target !== navbarRef.current)
+          return;
+        setMouseHold(true)
+      }}
       onMouseUp={() => setMouseHold(false)}
       ref={navbarRef}
     >
       <span className='navbar-application-name font-semibold text-lg text-white select-none'>{applicationName}</span>
       <NavigationButtons parentSessionId={parentSessionId} />
-    </div>
+    </div >
   )
 };
 
