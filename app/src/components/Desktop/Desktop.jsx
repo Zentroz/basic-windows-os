@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component, useEffect } from 'react';
 import AppFilesContainer from './AppFilesContainer';
 import Windows from '../AppWindow/Windows';
 
@@ -9,7 +9,7 @@ const Desktop = () => {
     >
       <AppFilesContainer />
       <Windows />
-    </div>
+    </div >
   )
 };
 

@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import NavigationBar from './NavigationBar';
 
-const AppWindow = ({ displayMode, applicationName, windowSessionId }) => {
+const AppWindow = ({ displayMode, applicationName, windowSessionId, Application }) => {
   const appWindow = useRef();
   return (
     <div
@@ -10,7 +10,10 @@ const AppWindow = ({ displayMode, applicationName, windowSessionId }) => {
       ref={appWindow}
     >
       <NavigationBar applicationName={applicationName} parentSessionId={windowSessionId} />
-    </div>
+      <div className='application w-full h-[92%] bg-red-200'>
+        <Application />
+      </div>
+    </div >
   )
 };
 

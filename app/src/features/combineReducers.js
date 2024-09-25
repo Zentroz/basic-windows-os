@@ -1,8 +1,10 @@
 import { combineReducers } from "@reduxjs/toolkit";
-import windowSessionSlice from "./windowSessionSlice";
+import windowSession from "./windowSessionSlice";
+import installedApplication from "./installedApplicationSlice";
 
 const combinedReducers = combineReducers({
-  windowSessionSlice
+  windowSession,
+  installedApplication
 })
 
 export default combinedReducers;
