@@ -16,7 +16,7 @@ const NotepadNavbar = ({ fileOpen, setFileOpen }) => {
         id,
         name: "untitled",
         extension: "txt",
-        directory: "/desktop",
+        directory: 4,
         content
       }));
 
