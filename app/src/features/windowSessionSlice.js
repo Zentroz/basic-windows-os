@@ -1,5 +1,4 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
-import Notepad from "../applications/Notepad/Notepad";
 
 const initialState = {
   sessions: []
@@ -10,11 +9,12 @@ const windowSessionSlice = createSlice({
   initialState,
   reducers: {
     addSession: (state, action) => {
-      const { name, displayMode } = action.payload;
+      const { name, displayMode, openFile } = action.payload;
       state.sessions.push({
         _id: nanoid(),
         name,
-        displayMode
+        displayMode,
+        openFile
       });
     },
     removeSession: (state, action) => {

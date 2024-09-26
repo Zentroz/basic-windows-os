@@ -12,6 +12,31 @@ const NavigationBar = ({ applicationName, parentSessionId }) => {
     y: 0
   });
 
+  // Event Functions
+  const MouseDown = (e) => {
+    if (e.button == 0) {
+      if (e.target !== navbarRef.current)
+        return;
+      setMouseHold(true)
+    }
+  }
+  const MouseUp = (e) => {
+    if (e.button == 0) {
+      setMouseHold(false)
+    }
+  }
+  const MouseOver = (e) => {
+    if (e.button == 0) {
+      setMouseHover(true)
+    }
+  }
+  const MouseOut = (e) => {
+    if (e.button == 0) {
+      setMouseHover(false);
+      setMouseHold(false);
+    }
+  }
+
   window.addEventListener("mousemove", (e) => {
     setMousePosition({
       x: e.clientX,
@@ -29,14 +54,10 @@ const NavigationBar = ({ applicationName, parentSessionId }) => {
   return (
     <div
       className='app-navigation-bar w-full h-[8%] bg-gray-800 pl-2'
-      onMouseOver={() => setMouseHover(true)}
-      onMouseOut={() => { setMouseHover(false); setMouseHold(false); }}
-      onMouseDown={(e) => {
-        if (e.target !== navbarRef.current)
-          return;
-        setMouseHold(true)
-      }}
-      onMouseUp={() => setMouseHold(false)}
+      onMouseOver={MouseOver}
+      onMouseOut={MouseOut}
+      onMouseDown={MouseDown}
+      onMouseUp={MouseUp}
       ref={navbarRef}
     >
       <span className='navbar-application-name font-semibold text-lg text-white select-none'>{applicationName}</span>

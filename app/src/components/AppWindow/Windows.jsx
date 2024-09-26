@@ -10,7 +10,7 @@ const Windows = () => {
   return (
     <div>
       {windowSessions.map((window) =>
-        <AppWindow key={window["_id"]} applicationName={window["name"]} windowSessionId={window["_id"]} displayMode={window["displayMode"]} Application={Applications[window["name"]]} />
+        <AppWindow key={window["_id"]} applicationName={window["name"]} windowSessionId={window["_id"]} displayMode={window["displayMode"]} Application={Applications[window["name"]]} fileOpen={window["openFile"]} />
       )}
     </div>
   )
