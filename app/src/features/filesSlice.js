@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { AddContent, EditContent } from "../utils/fileContents";
 
 const initialState = [
   {
@@ -7,7 +8,6 @@ const initialState = [
     type: "file",
     extension: "txt",
     directory: 4,
-    content: "My name is Ashish"
   },
   {
     _id: 2,
@@ -15,7 +15,6 @@ const initialState = [
     type: "file",
     extension: "txt",
     directory: 2,
-    content: "My name is sample1"
   }
 ];
 
@@ -25,21 +24,19 @@ const fileSlice = createSlice({
   reducers: {
     addFile: (state, action) => {
       const { id, name, extension, directory, content } = action.payload;
-
+      AddContent(id, content);
       state.push({
         _id: id,
         name,
         type: "file",
         extension,
         directory,
-        content
       });
     },
     editContent: (state, action) => {
       const { id, content } = action.payload;
 
-      const index = state.findIndex((file) => file["_id"] == id);
-      state[index]["content"] = content;
+      EditContent(id, content);
     },
     renameFile: (state, action) => { },
     removeFile: (state, action) => { },

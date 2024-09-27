@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { addFile, editContent } from '../../../features/filesSlice';
+import { addFile } from '../../../features/filesSlice';
+import { EditContent } from '../../../utils/fileContents';
 import { nanoid } from '@reduxjs/toolkit';
 
 const NotepadNavbar = ({ fileOpen, setFileOpen }) => {
@@ -24,7 +25,7 @@ const NotepadNavbar = ({ fileOpen, setFileOpen }) => {
       return
     };
     // Save already open file
-    dispatch(editContent({ id: fileOpen, content }));
+    EditContent(fileOpen, content);
   }
 
   return (

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addSession } from '../../../features/windowSessionSlice';
+import ItemIcon from './ItemIcon';
 
 const Items = ({ item, changeDir }) => {
   const dispatch = useDispatch();
@@ -21,10 +22,11 @@ const Items = ({ item, changeDir }) => {
   }
 
   return (
-    <div className='hover:bg-blue-400 hover:bg-opacity-30 select-none'
+    <div className='file-explorer-item flex gap-2 px-2 rounded-md hover:bg-blue-400 hover:bg-opacity-10 select-none'
       onDoubleClick={ChangeDir}
     >
-      {item["name"]}
+      <ItemIcon name={item["name"]} type={item["type"]} extension={item["extension"]} size={"s"} />
+      <span>{item["name"]}</span>
     </div>
   )
 };

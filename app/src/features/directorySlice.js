@@ -31,6 +31,18 @@ const initialState = [
     type: "folder",
     parentDir: 3
   },
+  {
+    _id: 5,
+    name: "Pictures",
+    type: "folder",
+    parentDir: 3
+  },
+  {
+    _id: 6,
+    name: "Music",
+    type: "folder",
+    parentDir: 3
+  },
 ]
 
 const directorySlice = createSlice({
