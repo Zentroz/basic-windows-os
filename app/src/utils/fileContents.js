@@ -4,6 +4,7 @@ const fileContents = {
 };
 
 const AddContent = (id, content) => {
+  if (fileContents[id]) return;
   fileContents[id] = content;
 }
 const GetContent = (id) => {

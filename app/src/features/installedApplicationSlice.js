@@ -9,12 +9,6 @@ const initialState = {
       supportedExtensions: []
     },
     {
-      name: "Music Player",
-      type: "application",
-      icon: 'src/applications/Music Player/assets/icon.png',
-      supportedExtensions: ["mp3"]
-    },
-    {
       name: "Notepad",
       type: "application",
       icon: 'src/applications/Notepad/assets/icon.png',

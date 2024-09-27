@@ -2,11 +2,15 @@ import React from 'react'
 
 const ItemIcon = ({ name, type, extension, size }) => {
   const sizes = {
-    "s": "6",
-    "md": "10",
-    "lg": "16"
+    "s": 1.5,
+    "md": 2.5,
+    "lg": 4
   }
   let path = (type == "folder" ? 'src/assets/folderIcon.png' : `src/assets/${extension}Icon.png`);
+
+  const w = `${sizes[size]}rem`;
+  const h = `${sizes[size]}rem`;
+
 
   switch (name) {
     case "Desktop":
@@ -23,9 +27,10 @@ const ItemIcon = ({ name, type, extension, size }) => {
     default:
       break;
   }
+  console.log(w, h);
 
   return (
-    <img className={`window-explorer-item-icon w-${sizes[size]} h-${sizes[size]}`} src={path} alt="item-icon" />
+    <img className={`window-explorer-item-icon  w-[${w}] h-[${h}]`} src={path} alt="item-icon" />
   )
 }
 

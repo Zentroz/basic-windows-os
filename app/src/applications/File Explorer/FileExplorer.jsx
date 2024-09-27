@@ -16,25 +16,6 @@ const FileExplorer = ({ currentDirectory }) => {
     setCurrentDir(name);
   }
 
-  // Loading sample files
-  // Music
-  useEffect(() => {
-    fetch('src/assets/sampleMusic/your love is my drug-8 bit (slowed).mp3')
-      .then(response => response.arrayBuffer())
-      .then(buffer => {
-        const audioFile = {
-          _id: 0,
-          name: "Your love is my drug 8-bit (slowed)",
-          extension: "mp3",
-          directory: 6,
-        }
-        AddContent(audioFile["_id"], buffer);
-        dispatch(addFile(audioFile));
-      });
-
-  }, [])
-
-
   return (
     <div className='application-window w-full h-full bg-[#191919]'>
       <FileExplorerNavbar currentDirectory={"Home"} />

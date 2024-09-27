@@ -20,7 +20,7 @@ const AppWindow = ({ displayMode, applicationName, windowSessionId, Application,
   }
   return (
     <div
-      className={`app-window ${displayMode != 0 ? "absolute" : "hidden"} top-[10vh] left-[18vw] bg-green-100 w-[60vw] h-[65vh] border-2 border-gray-800`}
+      className={`app-window ${displayMode != 0 ? "absolute" : "hidden"} top-[10vh] left-[18vw] rounded-md bg-green-100 w-[60vw] h-[65vh] border-2 border-gray-800`}
       id={windowSessionId}
       onMouseDown={FocusWindow}
       ref={appWindow}
