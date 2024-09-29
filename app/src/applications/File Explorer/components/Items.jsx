@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addSession } from '../../../features/windowSessionSlice';
 import ItemIcon from './ItemIcon';
+import { showNotification } from '../../../utils/windowMethods';
 
 const Items = ({ item, changeDir }) => {
   const dispatch = useDispatch();
@@ -12,7 +13,7 @@ const Items = ({ item, changeDir }) => {
       changeDir(item["_id"]);
     }
     if (item["type"] == "file") {
-      if (!application) { console.log("Unsupported File"); return; }
+      if (!application) { showNotification("System", "Unsupported file!"); return; }
       dispatch(addSession({
         name: application["name"],
         displayMode: 1,

@@ -7,7 +7,7 @@ const ItemIcon = ({ name, type, extension, size }) => {
     "md": 2.5,
     "lg": 4
   }
-  let path = (type == "folder" ? 'src/assets/folderIcon.png' : `src/assets/${extension}Icon.png`);
+  let path = (type == "folder" ? 'src/assets/folderIcon.png' : `src/assets/${extension == "nd" ? "file" : extension}Icon.png`);
 
   useEffect(() => {
     const w = `${sizes[size]}rem`;
