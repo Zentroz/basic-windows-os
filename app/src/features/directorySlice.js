@@ -51,10 +51,19 @@ const directorySlice = createSlice({
   initialState,
   reducers: {
     addDirectory: (state, action) => {
-      const { name, parentDir } = action.payload;
-      const folderExists = state.filter((folder) => folder["name"] == name && folder["parentDir"] == parentDir);
+      const parentDir = action.payload.parentDir;
+      let name = action.payload.name
+      const folderExists = state.find((folder) => folder["name"] == name && folder["parentDir"] == parentDir);
 
-      if (folderExists.length > 0) { showNotification("File explorer", `Folder with name "${name}" already exists in the directory.`); return }
+      if (folderExists) {
+        let index = 0;
+        while (true) {
+          const newName = `${name}(${index})`
+          const exists = state.find((item) => item["name"] == newName);
+          if (!exists) { name = newName; break };
+          index++;
+        }
+      }
 
       state.push({
         _id: nanoid(),

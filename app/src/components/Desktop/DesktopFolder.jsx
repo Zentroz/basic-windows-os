@@ -8,7 +8,7 @@ const DesktopFolder = ({ name }) => {
     // onDoubleClick={RunApplication}
     >
       <DesktopFolderIcon size={"md"} />
-      <span className='text-center'>{name}</span>
+      <span className='folder-name text-center text-sm'>{name}</span>
     </div>
   )
 };

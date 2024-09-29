@@ -1,6 +1,6 @@
 const fileContents = {
-  "1": "My name is Ashish",
-  "2": "My name is sample1"
+  "1": "Project is going good.",
+  "2": "This is sample1"
 };
 
 const AddContent = (id, content) => {

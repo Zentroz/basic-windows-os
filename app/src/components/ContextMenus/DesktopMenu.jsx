@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { useDispatch } from 'react-redux';
-import { addDirectory } from '../../features/directorySlice'
+import { addDirectory } from '../../features/directorySlice';
+import { addFile } from '../../features/filesSlice'
 import { isInsideElement } from '../../utils/utilMethods'
 import MenuOption from './MenuOption';
 
@@ -15,7 +16,14 @@ const DesktopMenu = () => {
   })
 
   const options = {
-    "New File": () => { },
+    "New File": () => {
+      dispatch(addFile({
+        name: "untitled",
+        extension: "nd",
+        directory: 4,
+        content: ""
+      }));
+    },
     "New Folder": () => {
       dispatch(addDirectory({ name: "New Folder", parentDir: 4 }));
     },

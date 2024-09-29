@@ -19,7 +19,7 @@ const Application = ({ name, icon }) => {
       onDoubleClick={RunApplication}
     >
       <ApplicationIcon icon={icon} size={"md"} />
-      <span className='text-center'>{name}</span>
+      <span className='application-name text-center text-sm'>{name}</span>
     </div>
   )
 };

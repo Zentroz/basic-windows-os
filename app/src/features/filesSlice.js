@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, nanoid } from "@reduxjs/toolkit";
 import { AddContent, EditContent } from "../utils/fileContents";
 
 const initialState = [
@@ -23,10 +23,23 @@ const fileSlice = createSlice({
   initialState,
   reducers: {
     addFile: (state, action) => {
-      const { id, name, extension, directory, content } = action.payload;
+      const { id, extension, directory, content } = action.payload;
+      let name = action.payload.name;
+      const itemExists = state.find((item) => item["name"] == name);
+
+      if (itemExists) {
+        let index = 0;
+        while (true) {
+          const newName = `${name}(${index})`
+          const exists = state.find((item) => item["name"] == newName);
+          if (!exists) { name = newName; break };
+          index++;
+        }
+      }
+
       AddContent(id, content);
       state.push({
-        _id: id,
+        _id: id || nanoid(),
         name,
         type: "file",
         extension,
