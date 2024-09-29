@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { addFile } from '../../../features/filesSlice';
 import { EditContent } from '../../../utils/fileContents';
 import { nanoid } from '@reduxjs/toolkit';
+import { showNotification } from '../../../utils/windowMethods';
 
 const NotepadNavbar = ({ fileOpen, setFileOpen }) => {
   // const [currentFile, setCurrentFile] = useState(fileOpen);
@@ -22,10 +23,12 @@ const NotepadNavbar = ({ fileOpen, setFileOpen }) => {
       }));
 
       setFileOpen(id);
+      showNotification("Notepad", "New file created and saved.")
       return
     };
     // Save already open file
     EditContent(fileOpen, content);
+    showNotification("Notepad", "File saved.")
   }
 
   return (

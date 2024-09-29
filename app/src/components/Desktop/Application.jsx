@@ -18,7 +18,7 @@ const Application = ({ name, icon }) => {
       className='application flex flex-col items-center justify-center w-full h-full rounded-lg hover:bg-blue-400 hover:bg-opacity-20 select-none'
       onDoubleClick={RunApplication}
     >
-      <ApplicationIcon icon={icon} size={"xl"} />
+      <ApplicationIcon icon={icon} size={"md"} />
       <span className='text-center'>{name}</span>
     </div>
   )

@@ -6,7 +6,9 @@ import Taskbar from './components/Taskbar/Taskbar'
 
 function App() {
   // Disable brower context menu
-  window.addEventListener("contextmenu", (e) => e.preventDefault());
+  window.addEventListener("contextmenu", (e) => {
+    e.preventDefault()
+  });
   document.body.style.overflow = "hidden";
 
   return (

@@ -18,11 +18,11 @@ const File = ({ id, name, icon, extension }) => {
 
   return (
     <div
-      className='application flex flex-col items-center justify-center w-full h-full rounded-lg hover:bg-blue-400 hover:bg-opacity-20 select-none'
+      className='file flex flex-col items-center justify-center w-full h-full rounded-lg hover:bg-blue-400 hover:bg-opacity-20 select-none'
       onDoubleClick={OpenFile}
       id={id}
     >
-      <FileIcon icon={icon ? icon : undefined} size={"xl"} extension={extension} />
+      <FileIcon icon={icon ? icon : undefined} size={"md"} extension={extension} />
       <span className='text-center'>{`${name}.${extension}`}</span>
     </div>
   )

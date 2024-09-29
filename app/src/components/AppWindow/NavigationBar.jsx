@@ -15,7 +15,7 @@ const NavigationBar = ({ applicationName, parentSessionId }) => {
   // Event Functions
   const MouseDown = (e) => {
     if (e.button == 0) {
-      if (e.target !== navbarRef.current)
+      if (e.target.classList[0] == "navigation-button")
         return;
       setMouseHold(true)
     }

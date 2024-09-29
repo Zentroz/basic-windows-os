@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 
 const ItemIcon = ({ name, type, extension, size }) => {
+  const iconRef = useRef();
   const sizes = {
     "s": 1.5,
     "md": 2.5,
@@ -8,8 +9,12 @@ const ItemIcon = ({ name, type, extension, size }) => {
   }
   let path = (type == "folder" ? 'src/assets/folderIcon.png' : `src/assets/${extension}Icon.png`);
 
-  const w = `${sizes[size]}rem`;
-  const h = `${sizes[size]}rem`;
+  useEffect(() => {
+    const w = `${sizes[size]}rem`;
+    const h = `${sizes[size]}rem`;
+    iconRef.current.style.width = w;
+    iconRef.current.style.height = h;
+  }, [])
 
 
   switch (name) {
@@ -27,10 +32,9 @@ const ItemIcon = ({ name, type, extension, size }) => {
     default:
       break;
   }
-  console.log(w, h);
 
   return (
-    <img className={`window-explorer-item-icon  w-[${w}] h-[${h}]`} src={path} alt="item-icon" />
+    <img className={`window-explorer-item-icon`} src={path} alt="item-icon" ref={iconRef} />
   )
 }
 

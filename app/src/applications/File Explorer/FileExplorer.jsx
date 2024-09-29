@@ -16,9 +16,24 @@ const FileExplorer = ({ currentDirectory }) => {
     setCurrentDir(name);
   }
 
+  const [allCurrentDir, setAllCurrentDir] = useState([]);
+
+  const GetToRoot = (directory) => {
+    const currDir = allDir.find((dir) => dir["_id"] == directory);
+    if (currDir["parentDir"] == null) return;
+    setAllCurrentDir((prevState) => [...prevState, currDir]);
+    GetToRoot(currDir["parentDir"]);
+  }
+
+  useEffect(() => {
+    setAllCurrentDir([])
+    GetToRoot(currentDir);
+  }, [currentDir])
+
+
   return (
     <div className='application-window w-full h-full bg-[#191919]'>
-      <FileExplorerNavbar currentDirectory={"Home"} />
+      <FileExplorerNavbar allCurrentDir={allCurrentDir.reverse()} changeDir={setCurrentDir} />
       <div className='h-[93%] grid grid-cols-4'>
         <Sidepanel changeDir={ChangeDir} />
         <Folders parentDir={currentDir} folders={folders} changeDir={ChangeDir} />

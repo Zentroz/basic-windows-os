@@ -17,13 +17,15 @@ const NavigationButtons = ({ parentSessionId }) => {
     <div className='navigation-buttons justify-end h-[100%] w-[30%] float-right flex gap-1'>
       {/* Minimize Button */}
       <button
-        className='navigation-minimize-button w-[16%] hover:bg-blue-400 hover:bg-opacity-10 text-white'
+        className='navigation-button w-[16%] hover:bg-blue-400 hover:bg-opacity-10 text-white'
+        id='navigation-minimize-button'
         onClick={MinimizeWindow}
       >-</button>
       {/* Exit Button */}
       <button
-        className='navigation-exit-button w-[16%] hover:bg-red-500 rounded-tr-md text-white'
+        className='navigation-button w-[16%] hover:bg-red-500 rounded-tr-md text-white'
         onClick={RemoveSession}
+        id='navigation-exit-button'
       >x</button>
     </div>
   )

@@ -1,4 +1,5 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
+import { showNotification } from "../utils/windowMethods";
 
 const initialState = [
   {
@@ -51,9 +52,14 @@ const directorySlice = createSlice({
   reducers: {
     addDirectory: (state, action) => {
       const { name, parentDir } = action.payload;
+      const folderExists = state.filter((folder) => folder["name"] == name && folder["parentDir"] == parentDir);
+
+      if (folderExists.length > 0) { showNotification("File explorer", `Folder with name "${name}" already exists in the directory.`); return }
+
       state.push({
         _id: nanoid(),
         name,
+        type: "folder",
         parentDir
       });
     },

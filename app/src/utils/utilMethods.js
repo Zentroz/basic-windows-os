@@ -1,5 +1,5 @@
-const isInsideElement = (elementClass, mouseX, mouseY) => {
-  const element = document.querySelector("." + elementClass);
+const isInsideElement = (elementClassOrId, mouseX, mouseY) => {
+  const element = document.querySelector("." + elementClassOrId) || document.getElementById(elementClassOrId);
   const rect = element.getBoundingClientRect();
   return mouseX > rect.x &&
     mouseY > rect.y &&

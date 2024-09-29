@@ -1,21 +1,26 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 const FileIcon = ({ icon, size, extension }) => {
+  const iconRef = useRef();
   const sizes = {
     "s": 1.5,
     "md": 2.5,
     "lg": 4
   }
 
-  const w = `${sizes[size]}rem`;
-  const h = `${sizes[size]}rem`;
+  useEffect(() => {
+    const w = `${sizes[size]}rem`;
+    const h = `${sizes[size]}rem`;
+    iconRef.current.style.width = w;
+    iconRef.current.style.height = h;
+  }, [])
 
   const iconPath = `src/assets/${extension}Icon.png`;
 
   return (
-    <img className={`notepad-icon w-[${w}] h-[${h}]`}
+    <img className={`file-icon`}
       src={icon ? icon : iconPath}
-      alt="notepad-icon" />
+      alt="file-icon" ref={iconRef} />
   )
 };
 

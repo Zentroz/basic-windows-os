@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
-const ApplicationIcon = ({ icon, size }) => {
+const DesktopFolderIcon = ({ size }) => {
   const iconRef = useRef();
   const sizes = {
     "s": 1.5,
@@ -17,8 +17,8 @@ const ApplicationIcon = ({ icon, size }) => {
 
 
   return (
-    <img className={`application-icons`} src={icon} alt="notepad-icon" ref={iconRef} />
+    <img className={`application-icons`} src='src/assets/folderIcon.png' alt="folder-icon" ref={iconRef} />
   )
 };
 
-export default ApplicationIcon;
+export default DesktopFolderIcon;
