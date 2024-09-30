@@ -14,6 +14,12 @@ const initialState = {
       icon: 'src/applications/Notepad/assets/icon.png',
       supportedExtensions: ["txt"]
     },
+    {
+      name: "Calculator",
+      type: "application",
+      icon: 'src/applications/Calculator/assets/icon.png',
+      supportedExtensions: []
+    },
   ]
 }
 

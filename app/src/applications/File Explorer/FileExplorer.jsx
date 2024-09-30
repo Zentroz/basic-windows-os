@@ -2,14 +2,12 @@ import React, { useState, useEffect } from 'react';
 import Sidepanel from './components/Sidepanel';
 import Folders from './components/Folders';
 import FileExplorerNavbar from './components/FileExplorerNavbar';
-import { useSelector, useDispatch } from 'react-redux';
-import { addFile } from '../../features/filesSlice';
-import { AddContent } from '../../utils/fileContents';
+import { useSelector } from 'react-redux';
 
-const FileExplorer = ({ currentDirectory }) => {
-  const dispatch = useDispatch();
+const FileExplorer = ({ fileOpen }) => {
   const allDir = useSelector(state => state.directory);
-  const [currentDir, setCurrentDir] = useState(0);
+
+  const [currentDir, setCurrentDir] = useState(fileOpen || 0);
   const folders = allDir.filter((dir) => dir["parentDir"] == currentDir);
 
   const ChangeDir = (name) => {

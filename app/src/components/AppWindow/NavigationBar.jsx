@@ -6,6 +6,7 @@ const NavigationBar = ({ applicationName, parentSessionId }) => {
   // Drag Window
   const [MouseHover, setMouseHover] = useState(false);
   const [MouseHold, setMouseHold] = useState(false);
+  const [Maximized, setMaximized] = useState(false);
 
   const [MousePosition, setMousePosition] = useState({
     x: 0,
@@ -44,7 +45,7 @@ const NavigationBar = ({ applicationName, parentSessionId }) => {
     });
   });
 
-  if (MouseHover && MouseHold) {
+  if (MouseHover && MouseHold && !Maximized) {
     const windowElement = document.getElementById(parentSessionId);
     const windowElementRect = windowElement.getBoundingClientRect();
     windowElement.style.top = MousePosition.y - (navbarRef.current.getBoundingClientRect().height / 2) + "px";
@@ -53,7 +54,7 @@ const NavigationBar = ({ applicationName, parentSessionId }) => {
 
   return (
     <div
-      className='app-navigation-bar w-full h-[8%] bg-gray-800 pl-2'
+      className='app-navigation-bar w-full max-h-8 h-[8%] bg-gray-800 pl-2 select-none'
       onMouseOver={MouseOver}
       onMouseOut={MouseOut}
       onMouseDown={MouseDown}
@@ -61,7 +62,7 @@ const NavigationBar = ({ applicationName, parentSessionId }) => {
       ref={navbarRef}
     >
       <span className='navbar-application-name font-semibold text-lg text-white select-none'>{applicationName}</span>
-      <NavigationButtons parentSessionId={parentSessionId} />
+      <NavigationButtons parentSessionId={parentSessionId} setMaximized={setMaximized} />
     </div >
   )
 };

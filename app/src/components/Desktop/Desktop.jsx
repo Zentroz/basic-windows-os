@@ -3,6 +3,7 @@ import AppFilesContainer from './AppFilesContainer';
 import Windows from '../AppWindow/Windows';
 import DesktopMenu from '../ContextMenus/DesktopMenu';
 import NotificationPopUp from '../Notifications/NotificationPopUp';
+import { showContextMenu } from '../../utils/windowMethods';
 
 const Desktop = () => {
 
@@ -16,10 +17,7 @@ const Desktop = () => {
   window.addEventListener("contextmenu", (e) => {
     const classList = e.target.classList;
     if (classList[0] == "app-file-container") {
-      const menu = document.getElementById("desktop-context-menu");
-      menu.style.left = e.clientX + "px";
-      menu.style.top = e.clientY + "px";
-      menu.style.display = "inline";
+      showContextMenu("desktop-context-menu", e.clientX, e.clientY);
     }
   });
 

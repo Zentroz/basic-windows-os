@@ -14,6 +14,14 @@ const showNotification = (appName, content) => {
   }, 6000);
 }
 
+const showContextMenu = (menuId, mouseX, mouseY) => {
+  const menu = document.getElementById(menuId);
+  menu.style.left = mouseX + "px";
+  menu.style.top = mouseY + "px";
+  menu.style.display = "inline";
+}
+
 export {
-  showNotification
+  showNotification,
+  showContextMenu
 }

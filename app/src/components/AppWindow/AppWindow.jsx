@@ -1,7 +1,7 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import NavigationBar from './NavigationBar';
 
-const AppWindow = ({ displayMode, applicationName, windowSessionId, Application, fileOpen }) => {
+const AppWindow = ({ displayMode, applicationName, windowSessionId, Application, fileOpen, width, heigth, resizeable }) => {
   const appWindow = useRef();
 
   const FocusWindow = (e) => {
@@ -18,16 +18,19 @@ const AppWindow = ({ displayMode, applicationName, windowSessionId, Application,
       });
     }
   }
+
   return (
     <div
-      className={`app-window ${displayMode != 0 ? "absolute" : "hidden"} top-[10vh] left-[18vw] rounded-md bg-green-100 w-[60vw] h-[65vh] border-2 border-gray-800`}
+      className={`app-window ${displayMode != 0 ? "absolute" : "hidden"} top-[10vh] left-[18vw] w-[60vw] h-[65vh] rounded-t-md bg-green-100 border-2 border-gray-800`}
       id={windowSessionId}
       onMouseDown={FocusWindow}
       ref={appWindow}
     >
-      <NavigationBar applicationName={applicationName} parentSessionId={windowSessionId} />
-      <div className='application w-full h-[92%] bg-red-200'>
-        <Application fileOpen={fileOpen} />
+      <div className='flex flex-col w-full h-full'>
+        <NavigationBar applicationName={applicationName} parentSessionId={windowSessionId} resizeable={resizeable} />
+        <div className='application w-full flex-1 bg-red-200'>
+          <Application fileOpen={fileOpen} id={windowSessionId} />
+        </div>
       </div>
     </div >
   )

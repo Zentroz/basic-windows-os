@@ -9,12 +9,15 @@ const windowSessionSlice = createSlice({
   initialState,
   reducers: {
     addSession: (state, action) => {
-      const { name, displayMode, openFile } = action.payload;
+      const { name, displayMode, openFile, width, height, resizeable } = action.payload;
       state.sessions.push({
         _id: nanoid(),
         name,
         displayMode,
-        openFile
+        openFile,
+        width: width || "60vw",
+        height: height || "65vh",
+        resizeable: resizeable || true
       });
     },
     removeSession: (state, action) => {
