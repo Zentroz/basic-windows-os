@@ -15,7 +15,7 @@ const FileIcon = ({ icon, size, extension }) => {
     iconRef.current.style.height = h;
   }, [])
 
-  const iconPath = `public/icons/${extension == "nd" ? "file" : extension}Icon.png`;
+  const iconPath = `/icons/${extension == "nd" ? "file" : extension}Icon.png`;
 
   return (
     <img className={`file-icon`}
