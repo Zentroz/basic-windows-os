@@ -9,7 +9,7 @@ const Desktop = () => {
 
   useEffect(() => {
     const desktop = document.querySelector(".desktop");
-    desktop.style.backgroundImage = "url(src/assets/desktopWallpaper.jpg)";
+    desktop.style.backgroundImage = "url(public/desktopWallpaper.jpg)";
     desktop.style.backgroundSize = "100% 100%";
   }, [])
 

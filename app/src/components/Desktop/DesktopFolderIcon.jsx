@@ -17,7 +17,7 @@ const DesktopFolderIcon = ({ size }) => {
 
 
   return (
-    <img className={`application-icons`} src='src/assets/folderIcon.png' alt="folder-icon" ref={iconRef} />
+    <img className={`application-icons`} src='public/icons/folderIcon.png' alt="folder-icon" ref={iconRef} />
   )
 };
 

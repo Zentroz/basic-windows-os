@@ -8,7 +8,7 @@ const Items = ({ item, changeDir }) => {
   const dispatch = useDispatch();
   const application = useSelector(state => state.installedApplication.applications).find((app) => app["supportedExtensions"].includes(item["extension"]));
 
-  const ChangeDir = () => {
+  const performAction = () => {
     if (item["type"] == "folder") {
       changeDir(item["_id"]);
     }
@@ -24,7 +24,7 @@ const Items = ({ item, changeDir }) => {
 
   return (
     <div className='file-explorer-item flex gap-2 px-2 rounded-md hover:bg-blue-400 hover:bg-opacity-10 select-none'
-      onDoubleClick={ChangeDir}
+      onDoubleClick={performAction}
     >
       <ItemIcon name={item["name"]} type={item["type"]} extension={item["extension"]} size={"s"} />
       <span>{item["name"]}</span>
