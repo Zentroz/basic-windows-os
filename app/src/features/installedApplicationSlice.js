@@ -5,19 +5,19 @@ const initialState = {
     {
       name: "File Explorer",
       type: "application",
-      icon: 'public/icons/explorerIcon.png',
+      icon: '/icons/explorerIcon.png',
       supportedExtensions: []
     },
     {
       name: "Notepad",
       type: "application",
-      icon: 'public/icons/notepadIcon.png',
+      icon: '/icons/notepadIcon.png',
       supportedExtensions: ["txt"]
     },
     {
       name: "Calculator",
       type: "application",
-      icon: 'public/icons/calculatorIcon.png',
+      icon: '/icons/calculatorIcon.png',
       supportedExtensions: []
     },
   ]

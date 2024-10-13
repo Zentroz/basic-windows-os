@@ -7,7 +7,7 @@ const ItemIcon = ({ name, type, extension, size }) => {
     "md": 2.5,
     "lg": 4
   }
-  let path = (type == "folder" ? 'public/icons/folderIcon.png' : `public/icons/${extension == "nd" ? "file" : extension}Icon.png`);
+  let path = (type == "folder" ? '/icons/folderIcon.png' : `/icons/${extension == "nd" ? "file" : extension}Icon.png`);
 
   useEffect(() => {
     const w = `${sizes[size]}rem`;
@@ -19,14 +19,14 @@ const ItemIcon = ({ name, type, extension, size }) => {
 
   switch (name) {
     case "Desktop":
-      path = "public/icons/desktopFolderIcon.png"
+      path = "/icons/desktopFolderIcon.png"
       break;
 
     case "Pictures":
-      path = "public/icons/pictureFolderIcon.png"
+      path = "/icons/pictureFolderIcon.png"
       break;
     case "Music":
-      path = "public/icons/musicFolderIcon.png"
+      path = "/icons/musicFolderIcon.png"
       break;
 
     default:
